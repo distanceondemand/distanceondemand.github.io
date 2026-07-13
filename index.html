@@ -1,114 +1,552 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5JQ79T2YT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distance on Demand | Fundraiser</title>
 
-    gtag('config', 'G-F5JQ79T2YT');
-  </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
-  <meta name="description" content="Alex Kim, Web Developer" charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alex Kim</title>
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Nunito:300,400' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css">
-  <!-- grid -->
-  <!-- <link rel="stylesheet" href="styles/materialize.css"> -->
-  <link rel="stylesheet" href="styles/boostrapGrid.css">
-  <!-- custom scss -->
-  <link rel="stylesheet" href="styles/sassfile.css">
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <!-- vue -->
-  <script src="https://unpkg.com/vue@2.6.5/dist/vue.min.js"></script>
-  <!-- <script src="https://unpkg.com/vue"></script> -->
-  <!-- require -->
-  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script> -->
-  <!-- react -->
-  <!-- <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
-  <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
-  <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script> -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<style>
+/* ==========================================================================
+   Based on alexekim.github.io typography
+   ========================================================================== */
+
+:root{
+    --accent: rgb(38,136,101);
+    --text:#202020;
+    --muted:#707070;
+    --background:#fafafa;
+    --surface:#ffffff;
+    --border:#e8e8e8;
+    --radius:18px;
+    --shadow:0 12px 32px rgba(0,0,0,.06);
+    --content-width:1100px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Almarai",sans-serif;
+    color:var(--text);
+    background:var(--background);
+    line-height:1.7;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:"Almarai";
+}
+
+h1{
+    font-size:36px;
+    line-height:1;
+    letter-spacing:normal;
+}
+
+h2{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+p{
+    color:var(--text);
+}
+
+a{
+    transition:.25s ease;
+    color:inherit;
+    text-decoration:none;
+    color: #0668d1;
+}
+
+a:hover{
+    color:var(--accent);
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+.container{
+    width:min(var(--content-width),92%);
+    margin:auto;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(250,250,250,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    height:74px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-weight:800;
+    font-size:1.1rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.nav-button{
+    background:var(--accent);
+    color:white;
+    padding:.75rem 1.5rem;
+    border-radius:999px;
+    font-weight:bold;
+}
+
+.nav-button:hover{
+    color:white;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(38,136,101,.3);
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero{
+    padding:5rem 0 4rem;
+}
+
+.hero-copy{
+    max-width:760px;
+    margin:auto;
+    text-align:center;
+}
+
+.hero-copy p{
+    margin:2rem 0;
+    color:var(--muted);
+    font-size:1.15rem;
+}
+
+.cta{
+    display:inline-block;
+    margin-top:.5rem;
+    background:var(--accent);
+    color:white;
+    padding:1rem 2rem;
+    border-radius:999px;
+    font-weight:700;
+    font-size:1.05rem;
+    box-shadow:0 10px 25px rgba(38,136,101,.25);
+}
+
+.cta:hover{
+    color:white;
+    transform:translateY(-3px);
+}
+
+.hero-carousel{
+    margin:5rem auto 0;
+    max-width:1000px;
+}
+
+.carousel{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.slides{
+    display:flex;
+    transition:.35s ease;
+}
+
+.slide{
+    min-width:100%;
+    aspect-ratio:16/9;
+    background:#e6e6e6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#888;
+    font-size:2rem;
+}
+
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.95);
+    cursor:pointer;
+    font-size:1.5rem;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.arrow:hover{
+    background:white;
+}
+
+.prev{ left:20px; }
+.next{ right:20px; }
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:.6rem;
+    padding:1.25rem;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#ccc;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:var(--accent);
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+section{
+    padding:4rem 0;
+}
+
+.about{
+    max-width:760px;
+    margin:auto;
+}
+
+.about p{
+    color:var(--muted);
+}
+
+/* ==========================================================================
+   Gallery
+   ========================================================================== */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.5rem;
+    margin-top:2rem;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    background:#ddd;
+    aspect-ratio:9/16;
+    box-shadow:var(--shadow);
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.45);
+    opacity:0;
+    transition:.25s;
+}
+
+.gallery-item:hover .overlay{
+    opacity:1;
+}
+
+.overlay a{
+    background:white;
+    padding:.8rem 1.5rem;
+    border-radius:999px;
+    font-weight:bold;
+}
+
+.overlay a:hover{
+    color:var(--accent);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer{
+    padding:5rem 0;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width:900px){
+
+.gallery-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:600px){
+
+.hero{
+    padding-top:3rem;
+}
+
+.gallery-grid{
+    grid-template-columns:1fr;
+}
+
+.arrow{
+    width:44px;
+    height:44px;
+}
+
+}
+</style>
 </head>
-
 <body>
-  <!--background image, see css -->
-  <!-- <div id="bg"></div> -->
-  <div id="content">
-    <div class="header">
 
+<header>
+    <div class="container nav">
+        <div class="logo">
+            Distance on Demand
+        </div>
+
+        <a class="nav-button" href="https://poweredbylungs.funraise.org/team/distance-on-demand">
+            Donate
+        </a>
     </div>
-    <!-- non-react content -->
-    <div id="main" class="">
-      <!-- intro content and links -->
-      <div class="row">
-        <div class="col-md-3 center">
-          <h1 tabindex="0">Distance on Demand</h1>
-          <p tabindex="0">american lung association</p>
-          <div id="headerLinksDiv" class="headerLinksDiv" style="display: block;">
-            <a title="LinkedIn" tabindex="0" href="" target="_blank" class="headerLink linkedin">
-              <i class="fab fa-linkedin"></i>
+</header>
+
+<main>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-copy">
+
+            <h1>Distance on Demand</h1>
+
+            <p>
+                We have a fairly simple rule: 1 kilometer per dollar donated. It only counts when we are traveling by human power. This will primarily be done via bicycle, but walking, running, and swimming are accepted as well. We will attempt to complete it all in 2026!
+            </p>
+
+            <p>
+                Want to see our progress? This document will contain all our contributions <br/>
+                <a href="https://docs.google.com/spreadsheets/d/1TZTAN1bPaj01__-5kGfC-Jc16BgFUBBdpFBBM1aZKPQ/edit?usp=sharing" target="_blank">View Tracker</a>
+            </p>
+
+            <p>
+                All funds will go to the <a href="https://www.lung.org" target="_blank">American Lung Association</a>, which strives to aid anyone dealing with lung diseases, promote policies for cleaner air, research lung disease, research racial divides in lung disease, prevent youth smoking and vaping, and provide resources for those looking to quit smoking and vaping.
+            </p>
+
+            <p>
+                CURRENT TOTAL<br/>
+                <span style="color:blue">0</span> kilometers
+            </p>
+
+            <a class="cta" href="https://poweredbylungs.funraise.org/team/distance-on-demand" target="_blank">
+                Donate to the Fundraiser
             </a>
 
-          </div>
-          <a href="" target="_blank">strava</a>
         </div>
-        <div id="bioContainer" class="col-md-9">
-          <div class="imgSplashContainer">
-            <img tabindex='0' class="imgBorder" src="" alt="">
-          </div>
 
-          <!-- react -->
-          <div id="root"></div>
+        <div class="hero-carousel">
 
-          <!-- bio -->
-          <div id="bioContent" class="bioContent">
-            <div class="section1">
-              <div class="row">
-                <div class="col-lg-12">
-                  <p tabindex="0">
-                      uh huh
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="section2">
-              <div class="row">
+            <div class="carousel">
 
-              </div>
-              <div class="section3">
-                <div class="row">
+                <div class="slides" id="slides">
+
+                    <div class="slide">
+                        <img src="./assets/group.jpg" alt="Selfie of three men riding bicycles on a trail"/>
+                    </div>
+
+                    <div class="slide">
+                        <img src="./assets/kev.jpg" alt="Man riding bicycle on a trail"/>
+                    </div>
+
+                    <div class="slide">
+                        <img src="./assets/dan.jpg" alt="Man riding bicycle on a trail"/>
+                    </div>
 
                 </div>
-              </div>
+
+                <button class="arrow prev">&#10094;</button>
+                <button class="arrow next">&#10095;</button>
+
             </div>
-          </div>
+
+            <div class="dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
         </div>
-      </div>
-      <!-- end intro content and links -->
+
     </div>
-    <!-- end main -->
-  </div>
 
-</body>
-<script type="text/javascript" src="scripts/vueApp.js"></script>
-<script type="text/javascript" src="scripts/app.js"></script>
-<script type="text/babel" src="scripts/container.js"></script>
-<script type="text/javascript">
+</section>
 
+<section>
+
+    <!--<div class="container about">
+
+        <h2>About the Ride</h2>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this
+            with information about your fundraiser, your team, your route, or
+            whatever story you want to tell visitors before they scroll through
+            the gallery.
+        </p>
+
+    </div>-->
+
+</section>
+
+<section>
+
+<div class="container">
+
+    <h2>Gallery</h2>
+
+    <div class="gallery-grid">
+        <p>
+            MAKE US SUFFER! Donate and you'll see our progress here.
+        </p>
+
+        <!-- Repeat as needed -->
+
+        <!--USE THESE-->
+        <!--<div class="gallery-item">
+            <img src="https://placehold.co/900x1600" alt="">
+            <div class="overlay">
+                <a href="#" target="_blank">Details</a>
+            </div>
+        </div>-->
+
+        <!--<div class="gallery-item">
+            <img src="https://placehold.co/900x1600" alt="">
+            <div class="overlay">
+                <a href="#">Details</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/900x1600" alt="">
+            <div class="overlay">
+                <a href="#">Details</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/900x1600" alt="">
+            <div class="overlay">
+                <a href="#">Details</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/900x1600" alt="">
+            <div class="overlay">
+                <a href="#">Details</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/900x1600" alt="">
+            <div class="overlay">
+                <a href="#">Details</a>
+            </div>
+        </div>-->
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+    ❤️ by Distance on Demand.
+
+</div>
+
+</footer>
+
+<script>
+const slides = document.getElementById('slides');
+const dots = document.querySelectorAll('.dot');
+
+let index = 0;
+const total = dots.length;
+
+function update(){
+    slides.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+    index = (index + 1) % total;
+    update();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+    index = (index - 1 + total) % total;
+    update();
+});
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        index = i;
+        update();
+    });
+});
 </script>
 
+</body>
 </html>
