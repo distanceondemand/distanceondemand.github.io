@@ -10,9 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* ==========================================================================
-   Based on alexekim.github.io typography
-   ========================================================================== */
+
 
 :root{
     --accent: rgb(38,136,101);
@@ -255,7 +253,7 @@ section{
 .gallery-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1.5rem;
+    gap:0.5rem;
     margin-top:2rem;
 }
 
@@ -320,26 +318,30 @@ footer{
 
 @media (max-width:900px){
 
-.gallery-grid{
-    grid-template-columns:repeat(2,1fr);
-}
-
+/*    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+*/
 }
 
 @media (max-width:600px){
 
-.hero{
-    padding-top:3rem;
-}
+    .overlay h3, .overlay p {
+        font-size: 14px;
+    }
 
-.gallery-grid{
-    grid-template-columns:1fr;
-}
+/*    .hero{
+        padding-top:3rem;
+    }
 
-.arrow{
-    width:44px;
-    height:44px;
-}
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .arrow{
+        width:44px;
+        height:44px;
+    }*/
 
 }
 </style>
@@ -487,40 +489,25 @@ footer{
             </div>
         </div>
 
-        <!--<div class="gallery-item">
-            <img src="https://placehold.co/900x1600" alt="">
+        <div class="gallery-item">
+            <img src="./assets/rides/2kev.png" alt="diagram of the route of a bike ride">
             <div class="overlay">
-                <a href="#">Details</a>
+                <h3><span class="rideDistance">12.2</span>km</h3>
+                <br/>
+                <p>(By Kevin)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
             </div>
         </div>
 
         <div class="gallery-item">
-            <img src="https://placehold.co/900x1600" alt="">
+            <img src="./assets/rides/2kev.png" alt="diagram of the route of a bike ride">
             <div class="overlay">
-                <a href="#">Details</a>
+                <h3><span class="rideDistance">65.5</span>km</h3>
+                <br/>
+                <p>(By Kevin)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
             </div>
         </div>
-
-        <div class="gallery-item">
-            <img src="https://placehold.co/900x1600" alt="">
-            <div class="overlay">
-                <a href="#">Details</a>
-            </div>
-        </div>
-
-        <div class="gallery-item">
-            <img src="https://placehold.co/900x1600" alt="">
-            <div class="overlay">
-                <a href="#">Details</a>
-            </div>
-        </div>
-
-        <div class="gallery-item">
-            <img src="https://placehold.co/900x1600" alt="">
-            <div class="overlay">
-                <a href="#">Details</a>
-            </div>
-        </div>-->
 
     </div>
 
