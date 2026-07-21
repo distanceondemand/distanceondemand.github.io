@@ -234,7 +234,7 @@ header{
    ========================================================================== */
 
 section{
-    padding:4rem 0;
+    /*padding:4rem 0;*/
 }
 
 .about{
@@ -483,7 +483,67 @@ footer{
         <!-- Repeat as needed -->
 
         <!--USE THESE-->
-        <div class="gallery-item">
+        <div id="activity7" class="gallery-item">
+            <img src="./assets/rides/7alex.png" alt="diagram of the route of a bike ride">
+            <div class="overlay">
+                <h3><span class="rideDistance">1.6</span>km</h3>
+                <br/>
+                <p>(By Alex)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
+            </div>
+        </div>
+
+        <div id="activity6" class="gallery-item">
+            <img src="./assets/rides/6dan.png" alt="diagram of the route of a bike ride">
+            <div class="overlay">
+                <h3><span class="rideDistance">6.2</span>km</h3>
+                <br/>
+                <p>(By Dan)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
+            </div>
+        </div>
+
+        <div id="activity5" class="gallery-item">
+            <img src="./assets/rides/5kev.png" alt="diagram of the route of a bike ride">
+            <div class="overlay">
+                <h3><span class="rideDistance">65.5</span>km</h3>
+                <br/>
+                <p>(By Kevin)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
+            </div>
+        </div>
+
+        <div id="activity4" class="gallery-item">
+            <img src="./assets/rides/4kev.png" alt="diagram of the route of a bike ride">
+            <div class="overlay">
+                <h3><span class="rideDistance">12.2</span>km</h3>
+                <br/>
+                <p>(By Kevin)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
+            </div>
+        </div>
+
+        <div id="activity3" class="gallery-item">
+            <img src="./assets/rides/3dan.png" alt="diagram of the route of a bike ride">
+            <div class="overlay">
+                <h3><span class="rideDistance">37.6</span>km</h3>
+                <br/>
+                <p>(By Dan)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
+            </div>
+        </div>
+
+        <div id="activity2" class="gallery-item">
+            <img src="./assets/rides/2dan.png" alt="diagram of the route of a bike ride">
+            <div class="overlay">
+                <h3><span class="rideDistance">6.2</span>km</h3>
+                <br/>
+                <p>(By Dan)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
+            </div>
+        </div>
+
+        <div id="activity1" class="gallery-item">
             <img src="./assets/rides/1kev.png" alt="diagram of the route of a bike ride">
             <div class="overlay">
                 <h3><span class="rideDistance">10.6</span>km</h3>
@@ -493,25 +553,6 @@ footer{
             </div>
         </div>
 
-        <div class="gallery-item">
-            <img src="./assets/rides/2kev.png" alt="diagram of the route of a bike ride">
-            <div class="overlay">
-                <h3><span class="rideDistance">12.2</span>km</h3>
-                <br/>
-                <p>(By Kevin)</p>
-                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
-            </div>
-        </div>
-
-        <div class="gallery-item">
-            <img src="./assets/rides/2kev.png" alt="diagram of the route of a bike ride">
-            <div class="overlay">
-                <h3><span class="rideDistance">65.5</span>km</h3>
-                <br/>
-                <p>(By Kevin)</p>
-                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
-            </div>
-        </div>
 
     </div>
 
@@ -532,46 +573,46 @@ footer{
 </footer>
 
 <script>
-const slides = document.getElementById('slides');
-const dots = document.querySelectorAll('.dot');
+    const slides = document.getElementById('slides');
+    const dots = document.querySelectorAll('.dot');
 
-let index = 0;
-const total = dots.length;
+    let index = 0;
+    const total = dots.length;
 
-function update(){
-    slides.style.transform = `translateX(-${index * 100}%)`;
+    function update(){
+        slides.style.transform = `translateX(-${index * 100}%)`;
 
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-}
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+    }
 
-document.querySelector('.next').addEventListener('click', () => {
-    index = (index + 1) % total;
-    update();
-});
-
-document.querySelector('.prev').addEventListener('click', () => {
-    index = (index - 1 + total) % total;
-    update();
-});
-
-dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-        index = i;
+    document.querySelector('.next').addEventListener('click', () => {
+        index = (index + 1) % total;
         update();
     });
-});
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  let total = 0;
-  let allRideDistances = document.querySelectorAll(".rideDistance");
-  for (var i = allRideDistances.length - 1; i >= 0; i--) {
-      total += Number(allRideDistances[i].innerHTML);
+    document.querySelector('.prev').addEventListener('click', () => {
+        index = (index - 1 + total) % total;
+        update();
+    });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            index = i;
+            update();
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+      let total = 0;
+      let allRideDistances = document.querySelectorAll(".rideDistance");
+      for (var i = allRideDistances.length - 1; i >= 0; i--) {
+          total += Number(allRideDistances[i].innerHTML);
+          console.log(total);
+      }
       console.log(total);
-  }
-  console.log(total);
-  document.querySelector("#totalDistanceRidden").innerHTML = total;
-});
+      document.querySelector("#totalDistanceRidden").innerHTML = total;
+    });
 </script>
 
 </body>
