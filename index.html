@@ -543,6 +543,16 @@ footer{
         <!-- Repeat as needed -->
 
         <!--USE THESE-->
+        <div id="activity8" class="gallery-item">
+            <img src="./assets/rides/8dan.png" alt="diagram of the route of a bike ride">
+            <div class="overlay">
+                <h3><span class="rideDistance">6.2</span>km</h3>
+                <br/>
+                <p>(By Dan)</p>
+                <!--<a href="#" target="_blank">Details (10.6km)</a>-->
+            </div>
+        </div>
+
         <div id="activity7" class="gallery-item">
             <img src="./assets/rides/7alex.png" alt="diagram of the route of a bike ride">
             <div class="overlay">
@@ -606,7 +616,7 @@ footer{
         <div id="activity1" class="gallery-item">
             <img src="./assets/rides/1kev.png" alt="diagram of the route of a bike ride">
             <div class="overlay">
-                <h3><span class="rideDistance">10.6</span>km</h3>
+                <h3><span class="rideDistance">10.5</span>km</h3>
                 <br/>
                 <p>(By Kevin)</p>
                 <!--<a href="#" target="_blank">Details (10.6km)</a>-->
@@ -668,10 +678,10 @@ footer{
       let allRideDistances = document.querySelectorAll(".rideDistance");
       for (var i = allRideDistances.length - 1; i >= 0; i--) {
           total += Number(allRideDistances[i].innerHTML);
-          console.log(total);
+          // console.log(total);
       }
-      console.log(total);
-      document.querySelector("#totalDistanceRidden").innerHTML = total;
+      // console.log(total);
+      document.querySelector("#totalDistanceRidden").innerHTML = total.toFixed(1);
       tableByIndex();
     });
 
