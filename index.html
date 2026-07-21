@@ -312,6 +312,47 @@ footer{
     color:var(--muted);
 }
 
+.donors{
+    /*padding:4rem 0;*/
+}
+
+.donor-table{
+    width:70%;
+    border-collapse:collapse;
+    margin-top:1.5rem;
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin: 0 auto;
+}
+
+.donor-table th{
+    text-align:left;
+    padding: 12px 12px;
+    font-weight:700;
+    border-bottom:2px solid var(--border);
+}
+
+.donor-table td{
+    padding:1rem 1.5rem;
+    border-bottom:1px solid var(--border);
+}
+
+.donor-table tbody tr:last-child td{
+    border-bottom:none;
+}
+
+.donor-table tbody tr:hover{
+    background:#f8fbfa;
+}
+
+.donor-table th:last-child,
+.donor-table td:last-child{
+    text-align:right;
+    white-space:nowrap;
+}
+
 /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -470,6 +511,25 @@ footer{
 
 <section>
 
+<section class="container donors">
+
+    <h2>Donations</h2>
+
+    <table id="donorTable" class="donor-table">
+        <thead>
+            <tr>
+                <th>Donor</th>
+                <th>Gift</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody">
+            <!-- data here -->
+        </tbody>
+    </table>
+
+</section>
+
 <div class="container">
 
     <h2>Gallery</h2>
@@ -478,7 +538,6 @@ footer{
     </p>
 
     <div class="gallery-grid">
-
 
         <!-- Repeat as needed -->
 
@@ -612,7 +671,100 @@ footer{
       }
       console.log(total);
       document.querySelector("#totalDistanceRidden").innerHTML = total;
+      tableByIndex();
     });
+
+    let data = [
+        {
+            name: "Anonymous",
+            gift: 15.00
+        },
+        {
+            name: "Jennifer Lee",
+            gift: 56.00
+        },
+        {
+            name: "Jessica Yoshimura",
+            gift: 22.40
+        },
+        {
+            name: "Janais Peace",
+            gift: 22.40
+        },
+        {
+            name: "Mary Grittani",
+            gift: 84.00
+        },
+        {
+            name: "Anonymous",
+            gift: 28.00
+        },
+        {
+            name: "Anthony Masi",
+            gift: 42.02
+        },
+        {
+            name: "Kevin Tun",
+            gift: 37.45
+        },
+        {
+            name: "Carol Holmes",
+            gift: 112.00
+        },
+        {
+            name: "Genna Wakeley",
+            gift: 56.00
+        },
+        {
+            name: "Helen Li",
+            gift: 22.40
+        },
+        {
+            name: "Ed Thome",
+            gift: 54.42
+        },
+        {
+            name: "Christina Sun Oo",
+            gift: 22.40
+        },
+        {
+            name: "Brian Chung",
+            gift: 112.00
+        },
+        {
+            name: "Aoife O'Connor",
+            gift: 39.20
+        },
+        {
+            name: "Karina Grace",
+            gift: 33.60
+        },
+        {
+            name: "Aansi Shukla",
+            gift: 57.12
+        }
+    ];
+
+    const tableByIndex = ()=>{
+        let tableBody = document.querySelector("#tableBody");
+        tableBody.innerHTML = "";
+        for (var i = data.length - 1; i >= 0; i--) {
+            let dataNodeHtml = `<tr> <th>${data[i]["name"]}</th><th>$${data[i]["gift"].toFixed(2)}</th></tr>`;
+            tableBody.innerHTML = tableBody.innerHTML + dataNodeHtml;
+            console.log(dataNodeHtml);
+        }
+    };
+
+    const tableByGift = ()=>{
+        let tableBody = document.querySelector("#tableBody");
+        tableBody.innerHTML = "";
+        data.sort((a,b)=> a.gift - b.gift);
+        for (var i = data.length - 1; i >= 0; i--) {
+            let dataNodeHtml = `<tr> <th>${data[i]["name"]}</th><th>$${data[i]["gift"].toFixed(2)}</th></tr>`;
+            tableBody.innerHTML += dataNodeHtml;
+        }
+    }
+
 </script>
 
 </body>
