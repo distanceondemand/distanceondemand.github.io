@@ -306,6 +306,14 @@ section{
     color: white;
 }
 
+.totalSection {
+    text-align: center;
+}
+#donationTotal{
+    /* color: rgb(38,136,101); */
+    color:var(--accent);
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
@@ -462,7 +470,7 @@ footer{
             <!--end carousel-->
 
             <a class="cta" href="https://poweredbylungs.funraise.org/team/distance-on-demand" target="_blank">
-                Donate to the Fundraiser
+                DONATE TO THE FUNDRAISER
             </a>
 
             <p>
@@ -474,12 +482,12 @@ footer{
             </p>
 
             <p>
-                Want to see our progress? This Google Sheet will contain all our contributions <br/>
-                <a href="https://docs.google.com/spreadsheets/d/1TZTAN1bPaj01__-5kGfC-Jc16BgFUBBdpFBBM1aZKPQ/edit?usp=sharing" target="_blank">View Tracker</a>
+                All funds will go to the <a href="https://www.lung.org" target="_blank">American Lung Association</a>, which strives to aid anyone dealing with lung diseases, promote policies for cleaner air, research lung disease, research racial divides in lung disease, prevent youth smoking and vaping, and provide resources for those looking to quit smoking and vaping.
             </p>
 
             <p>
-                All funds will go to the <a href="https://www.lung.org" target="_blank">American Lung Association</a>, which strives to aid anyone dealing with lung diseases, promote policies for cleaner air, research lung disease, research racial divides in lung disease, prevent youth smoking and vaping, and provide resources for those looking to quit smoking and vaping.
+                Want to see our progress? This Google Sheet will contain all our contributions <br/>
+                <a class="cta" href="https://docs.google.com/spreadsheets/d/1TZTAN1bPaj01__-5kGfC-Jc16BgFUBBdpFBBM1aZKPQ/edit?usp=sharing" target="_blank">View Tracker</a>
             </p>
 
             <h3>
@@ -518,7 +526,10 @@ footer{
 <section class="container donors">
 
     <h2>Donations</h2>
-    <p style="color: black">The donation site stops showing earlier donations. Why? We've added this table to show everyone's generous donations.</p>
+    <p style="color: black">
+        The donation site stops showing earlier donations. Why would they do that...? We've added this table to show everyone's generous donations.
+    </p>
+    <h2 class="totalSection">Total donations: <span id="donationTotal"></span></h2>
 
     <table id="donorTable" class="donor-table">
         <thead>
@@ -1007,6 +1018,7 @@ footer{
       // console.log(total);
       document.querySelector("#totalDistanceRidden").innerHTML = total.toFixed(1);
       tableByIndex();
+      donationTotal(data);
     });
 
     let data = [
@@ -1087,6 +1099,14 @@ footer{
             gift: 163.26
         }
     ];
+
+    const donationTotal = (data) => {
+        let total = 0;
+        for (let i = 0; i < data.length; i++) {
+            total = total + data[i]["gift"];            
+        }
+        document.querySelector("#donationTotal").innerHTML = String(`$${total}`);
+    }
 
     const tableByIndex = ()=>{
         let tableBody = document.querySelector("#tableBody");
